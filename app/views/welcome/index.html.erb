@@ -1,6 +1,14 @@
 <h1>Seja Bem-Vindo!</h1>
 <p>Meu nome é André.</p>
 
-<p> O resultado da soma é: <%= 1 + 1 %></p>
-<p> Meu nome de trás para frente é: <%= "André".reverse %></p>
-<p> Hoje é <%= Date.today %></p>
+<ul>
+  <li>
+    <a href="http://localhost:3000/coins">Cadastro de Moedas</a>
+  </li>
+  <li>
+    <a href="/coins">Cadastro de Moedas</a>
+  </li>
+  <li>
+    <%= link_to "Cadastro de Moedas", coins_path %>
+  </li>
+</ul>
