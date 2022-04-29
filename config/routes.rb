@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
-  get 'welcome/index'
+  get 'welcome/index' # , to: 'welcome#index'
+  
   resources :coins
+  # get '/coins', to: 'coins#index'
+  # post '/coins', to: 'coins#create'
+  # ...
 
   root to: 'welcome#index'
 
