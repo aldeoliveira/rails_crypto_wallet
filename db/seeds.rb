@@ -6,36 +6,39 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-puts "Cadastrando as moedas..."
+spinner = TTY::Spinner.new("[:spinner] Populando BD...", format: :spin)
+spinner.auto_spin
 
-Coin.create!(
-  description: "Bitcoin",
-  acronym: "BTC",
-  url_image: "https://logospng.org/download/bitcoin/logo-bitcoin-256.png"
-)
+coins = [
+  {
+    description: "Bitcoin",
+    acronym: "BTC",
+    url_image: "https://logospng.org/download/bitcoin/logo-bitcoin-256.png"
+  },
+  {
+    description: "Ethereum",
+    acronym: "ETH",
+    url_image: "https://cdn.iconscout.com/icon/free/png-256/ethereum-1-283135.png"
+  },
+  {
+    description: "Dash",
+    acronym: "DASH",
+    url_image: "https://icons.iconarchive.com/icons/cjdowner/cryptocurrency-flat/256/Dash-icon.png"
+  },
+  {
+    description: "Cardano",
+    acronym: "ADA",
+    url_image: "https://logospng.org/download/cardano/logo-cardano-256.png"
+  },
+  {
+    description: "Iota",
+    acronym: "IOT",
+    url_image: "https://icons.iconarchive.com/icons/cjdowner/cryptocurrency/256/IOTA-icon.png"
+  }
+]
 
-Coin.create!(
-  description: "Ethereum",
-  acronym: "ETH",
-  url_image: "https://cdn.iconscout.com/icon/free/png-256/ethereum-1-283135.png"
-)
+coins.each do |coin|
+  Coin.find_or_create_by!(coin)
+end
 
-Coin.create!(
-  description: "Dash",
-  acronym: "DASH",
-  url_image: "https://icons.iconarchive.com/icons/cjdowner/cryptocurrency-flat/256/Dash-icon.png"
-)
-
-Coin.create!(
-  description: "Cardano",
-  acronym: "ADA",
-  url_image: "https://logospng.org/download/cardano/logo-cardano-256.png"
-)
-
-Coin.create!(
-  description: "Iota",
-  acronym: "IOT",
-  url_image: "https://icons.iconarchive.com/icons/cjdowner/cryptocurrency/256/IOTA-icon.png"
-)
-
-puts "Moedas cadastradas com sucesso!"
+spinner.success("(Concluído!)")
