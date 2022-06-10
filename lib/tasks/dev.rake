@@ -5,9 +5,24 @@ namespace :dev do
       puts "Esta task só pode ser utilizada em ambiente de desenvolvimento."
     end
 
-    puts %x(rails db:drop:_unsafe)
-    puts %x(rails db:create)
-    puts %x(rails db:migrate)
-    puts %x(rails db:seed)
+    spinner = TTY::Spinner.new("[:spinner] Apagando BD...")
+    spinner.auto_spin
+    %x(rails db:drop:_unsafe)
+    spinner.success("Concluído!")
+
+    spinner = TTY::Spinner.new("[:spinner] Criando BD...")
+    spinner.auto_spin
+    %x(rails db:create)
+    spinner.success("Concluído!")
+
+    spinner = TTY::Spinner.new("[:spinner] Migrando o BD...")
+    spinner.auto_spin
+    %x(rails db:migrate)
+    spinner.success("Concluído!")
+
+    spinner = TTY::Spinner.new("[:spinner] Populando o BD...")
+    spinner.auto_spin
+    %x(rails db:seed)
+    spinner.success("Concluído!")
   end
 end
