@@ -9,8 +9,8 @@ namespace :dev do
     show_spinner("Apagando BD...") { %x(rails db:drop:_unsafe) }
     show_spinner("Criando BD...") { %x(rails db:create) }
     show_spinner("Migrando BD...") { %x(rails db:migrate) }
-    %x(rails dev:add_coins)
     %x(rails dev:add_mining_types)
+    %x(rails dev:add_coins)
   end
 
   desc "Cadastra as moedas"
@@ -20,27 +20,32 @@ namespace :dev do
         {
           description: "Bitcoin",
           acronym: "BTC",
-          url_image: "https://logospng.org/download/bitcoin/logo-bitcoin-256.png"
+          url_image: "https://logospng.org/download/bitcoin/logo-bitcoin-256.png",
+          mining_type: MiningType.find_by(description: 'Proof of Work')
         },
         {
           description: "Ethereum",
           acronym: "ETH",
-          url_image: "https://cdn.iconscout.com/icon/free/png-256/ethereum-1-283135.png"
+          url_image: "https://cdn.iconscout.com/icon/free/png-256/ethereum-1-283135.png",
+          mining_type: MiningType.all.sample
         },
         {
           description: "Dash",
           acronym: "DASH",
-          url_image: "https://icons.iconarchive.com/icons/cjdowner/cryptocurrency-flat/256/Dash-icon.png"
+          url_image: "https://icons.iconarchive.com/icons/cjdowner/cryptocurrency-flat/256/Dash-icon.png",
+          mining_type: MiningType.all.sample
         },
         {
           description: "Cardano",
           acronym: "ADA",
-          url_image: "https://logospng.org/download/cardano/logo-cardano-256.png"
+          url_image: "https://logospng.org/download/cardano/logo-cardano-256.png",
+          mining_type: MiningType.all.sample
         },
         {
           description: "Iota",
           acronym: "IOT",
-          url_image: "https://icons.iconarchive.com/icons/cjdowner/cryptocurrency/256/IOTA-icon.png"
+          url_image: "https://icons.iconarchive.com/icons/cjdowner/cryptocurrency/256/IOTA-icon.png",
+          mining_type: MiningType.all.sample
         }
       ]
 
