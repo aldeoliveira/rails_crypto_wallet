@@ -11,17 +11,17 @@
     </div>
   <% end %>
 
-  <div>
+  <div class="field">
     <%= form.label :description, style: "display: block" %>
     <%= form.text_field :description %>
   </div>
 
-  <div>
+  <div class="field">
     <%= form.label :acronym, style: "display: block" %>
     <%= form.text_field :acronym %>
   </div>
 
-  <div>
+  <div class="field">
     <%= form.label :url_image, style: "display: block" %>
     <%= form.text_field :url_image %>
     <% if coin.url_image? %>
@@ -29,7 +29,12 @@
     <% end %>
   </div>
 
-  <div>
+  <div class="field">
+    <%= form.label :mining_type_id, style: "display: block" %>
+    <%= form.select("mining_type_id", @mining_type_options, { include_blank: "Select..." }) %>
+  </div>
+
+  <div class="actions">
     <%= form.submit %>
   </div>
 <% end %>
