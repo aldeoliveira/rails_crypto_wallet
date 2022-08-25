@@ -50,6 +50,7 @@ gem "bootsnap", require: false
 
 # My own
 gem "tty-spinner"
+gem "rails-i18n"
 
 # Use pry in rails console
 gem 'pry-rails'

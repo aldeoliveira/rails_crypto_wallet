@@ -1,13 +1,10 @@
 <h1>Seja Bem-Vindo!</h1>
 
-<p>Olá <strong><%= @meu_nome %></strong>,</p>
+<p><%= t('hello') %>! Você está no <%= nome_aplicacao %></p>
 
-<p>Este é o curso de <strong><%= @meu_curso %></strong>,</p>
+<p>O idioma usado nesta aplicação é: <strong><%= t('actual_locale') %></strong></p>
 
-<p>Você está no <%= nome_aplicacao %></p>
-
-
-<p><strong>Data:</strong> <%= data_br Date.today %></p>
+<p><strong>Data:</strong> <%= l(Date.today) %></p>
 
 <%= render "menu" %>
 

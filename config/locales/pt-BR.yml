@@ -1,0 +1,15 @@
+pt-BR:
+  actual_local: "Português Brasileiro"
+  
+  hello: "Olá Mundo"
+
+  links:
+    show: "Mostrar"
+    edit: "Editar"
+    destroy: "Apagar"
+
+  you_sure: "Tem certeza?"
+
+  # date:
+  #   formats:
+  #     default: "%d/%m/%Y (pt-BR)"
